@@ -3,8 +3,8 @@
 FROM node:14-alpine
 ENV NODE_ENV=production
 WORKDIR /app
-COPY ["package.json", "yarn.lock", "./"]
-RUN yarn install --production
-COPY . .
-RUN yarn build
-CMD ["yarn", "start"]
+COPY package.json ./
+RUN yarn install
+COPY . ./
+EXPOSE 3000
+CMD ["yarn", "dev"]

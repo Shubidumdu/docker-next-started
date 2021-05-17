@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    restart: always
+    ports:
+      - 3000:3000
+    environment: 
+      - URL=mongodb://mongo:27017/test
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+#   mongo:
+#     image: mongo:4.2.8
+#     ports:
+#       - 27017:27017
+#     volumes: 
+#       - mongodb:/data/db
+#       - mongodb_config:/data/configdb
+
+# volumes: 
+#   mongodb:
+#   mongodb_config:
