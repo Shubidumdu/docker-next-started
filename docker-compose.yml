@@ -12,10 +12,9 @@ services:
     environment: 
       - URL=mongodb://mongo:27017/test
     working_dir: /app
-    volumes:
-      - ./:/app
-      - /app/node_modules
-      - /app/.next
+    # volumes:
+    #   - ./.next:/app/.next
+    command: sh -c "yarn dev"
 #   mongo:
 #     image: mongo:4.2.8
 #     ports:
