@@ -10,19 +10,15 @@ services:
     ports:
       - 3000:3000
     environment: 
-      - URL=mongodb://mongo:27017/test
-    working_dir: /app
-    # volumes:
-    #   - ./.next:/app/.next
-    command: sh -c "yarn dev"
-#   mongo:
-#     image: mongo:4.2.8
-#     ports:
-#       - 27017:27017
-#     volumes: 
-#       - mongodb:/data/db
-#       - mongodb_config:/data/configdb
+      - DB_URL=mongodb://mongo:27017/test
+  mongo:
+    image: mongo:4.2.8
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
 
-# volumes: 
-#   mongodb:
-#   mongodb_config:
+volumes: 
+  mongodb:
+  mongodb_config:
