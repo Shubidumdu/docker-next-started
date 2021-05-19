@@ -6,9 +6,9 @@ COPY package.json .
 RUN yarn install
 COPY . .
 
-FROM base as dev
+# FROM base as dev
 CMD ["yarn", "dev"]
 
-FROM base as prod
-RUN yarn build
-CMD ["yarn", "start"]
+# FROM base as prod
+# RUN yarn build
+# CMD ["yarn", "start"]

@@ -11,6 +11,9 @@ services:
       - 3000:3000
     environment: 
       - DB_URL=mongodb://mongo:27017/test
+    working_dir: /app
+    volumes: 
+      - ./:/app
   mongo:
     image: mongo:4.2.8
     ports:
